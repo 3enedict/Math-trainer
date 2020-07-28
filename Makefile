@@ -3,13 +3,13 @@ CPPFLAGS = -Wall -g -std=c++11
 
 MainSrc = src/main.cpp
 MathSrc = src/math.cpp
-UnitsSrc = tests/main.cpp tests/max_generator.cpp tests/op_generator.cpp tests/res_generator.cpp
+UnitsSrc = tests/main.cpp tests/max_generator.cpp tests/op_generator.cpp tests/res_generator.cpp tests/ver_generator.cpp
 
 UnitsDeps = tests/generator.h
 
 MainObj = src/main.o
 MathObj = src/math.o
-TestsObj = tests/main.o tests/max_generator.o tests/op_generator.o tests/res_generator.o
+TestsObj = tests/main.o tests/max_generator.o tests/op_generator.o tests/res_generator.o tests/ver_generator.o
 
 all: math
 

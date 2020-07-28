@@ -7,6 +7,7 @@
 using namespace std;
 
 int Generator::maximum(int argc, char **argv) {
+  max = 100;
   char argument[6];
   if (argc > 1) {
     snprintf(argument, 6, "%s", argv[1]);

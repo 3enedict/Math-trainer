@@ -18,6 +18,15 @@ class UnitGenerator : public CppUnit::TestFixture {
   CPPUNIT_TEST(UnitGenerator_10);
   CPPUNIT_TEST(UnitGenerator_11);
   CPPUNIT_TEST(UnitGenerator_12);
+
+  CPPUNIT_TEST(UnitGenerator_13);
+  CPPUNIT_TEST(UnitGenerator_14);
+  CPPUNIT_TEST(UnitGenerator_15);
+  CPPUNIT_TEST(UnitGenerator_16);
+  CPPUNIT_TEST(UnitGenerator_17);
+  CPPUNIT_TEST(UnitGenerator_18);
+  CPPUNIT_TEST(UnitGenerator_19);
+  CPPUNIT_TEST(UnitGenerator_20);
   CPPUNIT_TEST_SUITE_END();
 
   public:
@@ -42,4 +51,14 @@ class UnitGenerator : public CppUnit::TestFixture {
   void UnitGenerator_10();
   void UnitGenerator_11();
   void UnitGenerator_12();
+
+  /* Test that the verification is done correctly */
+  void UnitGenerator_13();
+  void UnitGenerator_14();
+  void UnitGenerator_15();
+  void UnitGenerator_16();
+  void UnitGenerator_17();
+  void UnitGenerator_18();
+  void UnitGenerator_19();
+  void UnitGenerator_20();
 };
