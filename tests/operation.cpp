@@ -2,20 +2,19 @@
 #include <cppunit/extensions/HelperMacros.h>
 
 #include "../src/math.h"
-#include "generator.h"
+#include "unitmath.h"
 
 using namespace std;
 
 /* Test that the operation is generated correctly */
-
-void UnitGenerator::UnitGenerator_7() {
-  Generator gen;
+void UnitMath::UnitMath_7() {
+  Math math;
 
   char *argv[] = {(char *)"./test", (char *)"100", NULL};
-  gen.maximum(2, argv);
+  math.maximum(2, argv);
 
-  gen.operation();
+  math.operation();
   char sign_char[4] = {'+', '-', 'x', '/'};
-  string test = to_string(gen.get_term1()) + " " + sign_char[gen.get_sign()] + " " + to_string(gen.get_term2()) + " = ";
-  CPPUNIT_ASSERT(test == gen.get_op());
+  string test = to_string(math.get_term1()) + " " + sign_char[math.get_sign()] + " " + to_string(math.get_term2()) + " = ";
+  CPPUNIT_ASSERT(test == math.get_op());
 }

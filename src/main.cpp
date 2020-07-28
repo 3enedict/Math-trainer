@@ -6,23 +6,21 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-  Generator gen;
+  Math math;
   int color = 1;
   char *colors[2] = {(char *)"\033[0;31m", (char *)"\033[0;32m"};
 
-  gen.maximum(argc, argv);
-  cout << "Maximum is set to " << gen.get_max() << endl;
+  cout << "Maximum is set to " << math.maximum(argc, argv) << endl;
 
   while (1) {
-    gen.operation();
     printf("%s", colors[color]);
-    cout << gen.get_op();
+    cout << math.operation();
     printf("\033[0m");
 
-    gen.result();
+    math.result();
 
     string user_res;
     cin >> user_res;
-    color = gen.verify(user_res);
+    color = math.verify(user_res);
   }
 }

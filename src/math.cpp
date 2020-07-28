@@ -6,28 +6,29 @@
 
 using namespace std;
 
-int Generator::maximum(int argc, char **argv) {
+int Math::maximum(int argc, char **argv) {
   max = 100;
   char argument[6];
+
   if (argc > 1) {
     snprintf(argument, 6, "%s", argv[1]);
     max = atoi(argument);
     for(int i = 0; argument[i] != '\0'; i++) {
       if(argument[i] != '0' && argument[i] != '1' && argument[i] != '2' && argument[i] != '3' && argument[i] != '4' && argument[i] != '5' && argument[i] != '6' && argument[i] != '7' && argument[i] != '8' && argument[i] != '9') {
         max = 100;
-        return 0;
+        return max;
       }
     }
   }
 
   max = (max > 10000 || max < 2) ? 100 : max;
-  return 1;
+  return max;
 }
 
-int Generator::get_max() { return max; }
+int Math::get_max() { return max; }
 
 
-int Generator::operation() {
+string Math::operation() {
   struct timeval t;
   gettimeofday(&t, NULL);
   mt19937::result_type seed = t.tv_usec;
@@ -41,23 +42,23 @@ int Generator::operation() {
 
   op = to_string(term1) + " " + sign_char[sign] + " " + to_string(term2) + " = ";
 
-  return 1;
+  return op;
 }
 
-void Generator::set_op(string _op, int _sign, int _term1, int _term2) {
+void Math::set_op(string _op, int _sign, int _term1, int _term2) {
   op = _op;
   sign = _sign;
   term1 = _term1;
   term2 = _term2;
 }
 
-string Generator::get_op() { return op; }
-int Generator::get_sign() { return sign; }
-int Generator::get_term1() { return term1; }
-int Generator::get_term2() { return term2; }
+string Math::get_op() { return op; }
+int Math::get_sign() { return sign; }
+int Math::get_term1() { return term1; }
+int Math::get_term2() { return term2; }
 
 
-int *Generator::result() {
+int *Math::result() {
   if (sign < 3) {
     int results[3] = {term1 + term2, term1 - term2, term1 * term2};
     res[0] = results[sign];
@@ -78,12 +79,14 @@ int *Generator::result() {
   return res;
 }
 
-int *Generator::get_result() { return res; }
+int *Math::get_result() { return res; }
 
 
-int Generator::verify(string user_res) {
+int Math::verify(string user_res) {
   if(user_res.find_first_not_of("0123456789/-") == string::npos && user_res.size() < 6) {
     if (user_res.find('/') != string::npos) {
+      int user_result[2];
+
       sscanf(user_res.c_str(),"%d/%d",&user_result[0],&user_result[1]);
       if(user_result[0] == res[0] && user_result[1] == res[1])
         return 1;

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class Generator {
+class Math {
   int max;
   
   int sign, term1, term2;
@@ -12,15 +12,13 @@ class Generator {
 
   int res[2];
 
-  int user_result[2];
-
   public:
   /* Generate maximum */
   int maximum(int argc, char **argv);
   int get_max();
 
   /* Generate operation */
-  int operation();
+  string operation();
   string get_op();
   int get_sign();
   int get_term1();
