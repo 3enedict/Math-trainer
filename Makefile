@@ -5,7 +5,7 @@ MainSrc = src/main.cpp
 MathSrc = src/math.cpp
 UnitsSrc = tests/main.cpp tests/maximum.cpp tests/operation.cpp tests/result.cpp tests/verify.cpp
 
-UnitsDeps = tests/generator.h
+UnitsDeps = tests/unitmath.h
 
 MainObj = src/main.o
 MathObj = src/math.o
