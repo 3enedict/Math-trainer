@@ -78,3 +78,17 @@ int *Generator::result() {
 }
 
 int *Generator::get_result() { return res; }
+
+
+int Generator::verify(string user_res) {
+  if(user_res.find_first_not_of("0123456789/-") == string::npos && user_res.size() < 6) {
+    if (user_res.find('/') != string::npos) {
+      sscanf(user_res.c_str(),"%d/%d",&user_result[0],&user_result[1]);
+      if(user_result[0] == res[0] && user_result[1] == res[1])
+        return 1;
+    } else if(stoi(user_res) == res[0])
+      return 1;
+  }
+
+  return 0;
+}

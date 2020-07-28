@@ -12,6 +12,8 @@ class Generator {
 
   int res[2];
 
+  int user_result[2];
+
   public:
   /* Generate maximum */
   int maximum(int argc, char **argv);
@@ -30,4 +32,5 @@ class Generator {
   int *get_result();
 
   /* Verify the result */
+  int verify(string user_res);
 };

@@ -18,9 +18,5 @@ int main(int argc, char **argv) {
 
   string user_res;
   cin >> user_res;
-  if(gen.verify(user_res)) {
-    printf("mfdd");
-  } else {
-    printf("fkds");
-  }
+  cout << gen.verify(user_res) << endl;
 }
