@@ -1,23 +1,23 @@
 CXX = g++
-CPPFLAGS = -Wall -g
+CPPFLAGS = -Wall -g -std=c++11
 
 MainSrc = src/main.cpp
 MathSrc = src/math.cpp
-UnitsSrc = tests/main.cpp tests/Unit1.cpp
+UnitsSrc = tests/main.cpp tests/max_generator.cpp tests/op_generator.cpp tests/res_generator.cpp
 
-UnitsDeps = tests/Unit1.h
+UnitsDeps = tests/generator.h
 
 MainObj = src/main.o
 MathObj = src/math.o
-TestsObj = tests/main.o tests/Unit1.o
+TestsObj = tests/main.o tests/max_generator.o tests/op_generator.o tests/res_generator.o
 
 all: math
 
 math: $(MainObj) $(MathObj)
-	$(CXX) -o math $(MainSrc) $(MathSrc)
+	$(CXX) $(CPPFLAGS) -o math $(MainSrc) $(MathSrc)
 
 test: $(TestsObj) $(MainObj) $(MathObj)
-	$(CXX) -o test $(UnitsSrc) $(MathSrc) -lcppunit
+	$(CXX) $(CPPFLAGS) -o test $(UnitsSrc) $(MathSrc) -lcppunit
 
 clean:
 	rm -f $(MainObj) $(MathObj) $(TestsObj) math test

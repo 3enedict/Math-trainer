@@ -1,10 +1,10 @@
 #include <cppunit/CompilerOutputter.h>
 #include <cppunit/extensions/TestFactoryRegistry.h>
 #include <cppunit/ui/text/TestRunner.h>
-#include "Unit1.h"
+#include "generator.h"
 
 int main() {
-  CPPUNIT_TEST_SUITE_REGISTRATION(Unit1);
+  CPPUNIT_TEST_SUITE_REGISTRATION(UnitGenerator);
   CppUnit::Test *suite = CppUnit::TestFactoryRegistry::getRegistry().makeTest();
 
   CppUnit::TextUi::TestRunner runner;
